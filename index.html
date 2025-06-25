@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sahithi Keshireddy | Data Engineering Architect</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #2563eb;
@@ -19,7 +22,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif; /* Changed font to Inter */
+            font-family: 'Inter', sans-serif;
         }
 
         body {
@@ -57,6 +60,11 @@
             color: var(--primary);
         }
 
+        /* === NEW CSS TO PREVENT NAME WRAPPING === */
+        .logo span {
+            white-space: nowrap; /* Prevents the text from wrapping to a new line */
+        }
+
         .logo img {
             width: 40px;
             height: 40px;
@@ -67,6 +75,7 @@
 
         nav ul {
             display: flex;
+            align-items: center; /* Vertically align items */
             list-style: none;
         }
 
@@ -85,6 +94,17 @@
 
         nav ul li a:hover {
             color: var(--primary);
+        }
+
+        nav ul li a.resume-btn {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.5rem 1.2rem;
+        }
+
+        nav ul li a.resume-btn:hover {
+            background-color: var(--primary);
+            color: white;
         }
 
         .mobile-menu {
@@ -112,7 +132,6 @@
             right: 0;
             width: 50%;
             height: 100%;
-            /* Restored original Unsplash image URL for hero background */
             background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') no-repeat center center/cover;
             clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
             z-index: -1;
@@ -234,40 +253,127 @@
             color: #64748b;
         }
 
-        .about-skills {
-            margin-top: 2rem;
+        /* Work Experience Section */
+        .experience-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 2rem;
         }
 
-        .skill-item {
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            bottom: 10px;
+            width: 2px;
+            background-color: var(--primary);
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 3rem;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -2.7rem; /* (padding-left of parent + half of width) -> 2rem + 14px */
+            top: 15px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: white;
+            border: 3px solid var(--primary);
+        }
+
+        .experience-item h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-item h4 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item .date {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-item ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 0.75rem;
+            color: #64748b;
+        }
+
+        .experience-item ul li::before {
+            content: '\f058'; /* Font Awesome check-circle */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--secondary);
+        }
+
+        /* Skills Section */
+        #skills {
+            background-color: white;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            padding: 2rem;
+            background-color: var(--light);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
             margin-bottom: 1.5rem;
         }
 
-        .skill-name {
+        .skill-tags {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
+            flex-wrap: wrap;
+            gap: 0.75rem;
         }
 
-        .skill-bar {
-            height: 8px;
+        .skill-tag {
             background-color: var(--gray);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .skill-progress {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 4px;
-            width: 0;
-            transition: width 1s ease-in-out;
+            color: #334155;
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
         }
 
         /* Projects Section */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
 
@@ -277,6 +383,8 @@
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
@@ -302,6 +410,9 @@
 
         .project-info {
             padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-info h3 {
@@ -313,6 +424,7 @@
         .project-info p {
             color: #64748b;
             margin-bottom: 1rem;
+            flex-grow: 1;
         }
 
         .project-tags {
@@ -345,6 +457,39 @@
 
         .project-links a i {
             margin-right: 5px;
+        }
+
+        /* Certifications Section */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .certification-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--secondary);
+        }
+
+        .certification-card i {
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+
+        .certification-card span {
+            font-weight: 500;
         }
 
         /* Contact Section */
@@ -384,6 +529,16 @@
             font-size: 1.5rem;
             color: var(--secondary);
             margin-top: 5px;
+        }
+
+        .contact-item p a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item p a:hover {
+            color: var(--secondary);
         }
 
         .contact-form {
@@ -460,34 +615,6 @@
             font-size: 0.9rem;
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate {
-            animation: fadeIn 1s ease forwards;
-        }
-
-        .delay-1 {
-            animation-delay: 0.2s;
-        }
-
-        .delay-2 {
-            animation-delay: 0.4s;
-        }
-
-        .delay-3 {
-            animation-delay: 0.6s;
-        }
-
         /* Responsive */
         @media (max-width: 992px) {
             .hero::before {
@@ -528,6 +655,7 @@
             nav ul {
                 flex-direction: column;
                 gap: 0.5rem;
+                align-items: stretch; /* Make items full-width */
             }
 
             nav ul li {
@@ -537,6 +665,12 @@
             nav ul li a {
                 display: block;
                 padding: 0.8rem 0;
+                text-align: center; /* Center text in mobile menu */
+            }
+
+            nav ul li a.resume-btn {
+                padding: 0.8rem;
+                margin-top: 0.5rem; /* Add some space above the button */
             }
 
             .hero {
@@ -576,8 +710,7 @@
 <header>
     <div class="nav-container">
         <div class="logo">
-            <!-- REPLACE THIS WITH YOUR EMOJI IMAGE URL or local path (e.g., 'images/profile-emoji.png') -->
-            <img src="profile-emoji.png" alt="Sahithi's Emoji" onerror="this.onerror=null; this.src='https://placehold.co/40x40/2563eb/ffffff?text=SK'">
+            <img src="images/profile-emoji.png" alt="Sahithi's Emoji" onerror="this.onerror=null; this.src='https://placehold.co/40x40/2563eb/ffffff?text=SK'">
             <span>Sahithi Keshireddy</span>
         </div>
         <div class="mobile-menu">
@@ -586,21 +719,24 @@
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="Sahithi_Keshireddy_Resume.pdf" class="resume-btn" target="_blank" rel="noopener noreferrer">Resume</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
 <section class="hero">
-    <div class="hero-content animate">
+    <div class="hero-content">
         <h1>Transforming Data into Strategic Assets</h1>
-        <p class="tagline">Data Engineering Architect | Data Analyst | AI/ML Enthusiast  </p>
+        <p class="tagline">Data Engineering Architect | Data Analyst | AI/ML Enthusiast</p>
         <p>I architect robust data infrastructure that empowers organizations to make data-driven decisions at scale. With expertise in cloud platforms, ETL processes, and machine learning pipelines, I bridge the gap between raw data and actionable insights.</p>
         <div class="btn-group">
-            <a href="#projects" class="btn">View My Work</a>
+            <a href="#experience" class="btn">See My Experience</a>
             <a href="#contact" class="btn btn-outline">Get In Touch</a>
         </div>
     </div>
@@ -612,164 +748,209 @@
         <p>Energetic and results-oriented Data Engineer with proven experience in building scalable data solutions.</p>
     </div>
     <div class="about-grid">
-        <div class="about-img animate delay-1">
-            <!-- REPLACE THIS WITH YOUR PROFESSIONAL PHOTO URL or local path (e.g., 'images/profile-photo.jpg') -->
-            <img src="profile-photo.png" alt="Sahithi Keshireddy" onerror="this.onerror=null; this.src='https://placehold.co/600x400/e0f2f7/2563eb?text=Sahithi+Keshireddy'">
+        <div class="about-img">
+            <img src="images/profile-photo.png" alt="Sahithi Keshireddy" onerror="this.onerror=null; this.src='https://placehold.co/600x400/e0f2f7/2563eb?text=Sahithi+Keshireddy'">
         </div>
-        <div class="about-content animate delay-2">
+        <div class="about-content">
             <h3>Data Engineering Specialist</h3>
-            <p>With 3+ years of experience in data engineering, I specialize in designing and implementing high-performance data pipelines that process millions of records daily. My solutions have helped companies reduce data processing time by 80% while improving data quality.</p>
-            <p>I'm passionate about leveraging cutting-edge technologies to solve complex data challenges and create systems that are both scalable and maintainable.</p>
+            <p>With 3+ years of experience in data engineering and analysis, I specialize in designing and implementing high-performance data pipelines, developing insightful analytics, and building machine learning models that drive business value.</p>
+            <p>I'm passionate about leveraging cutting-edge technologies to solve complex data challenges. My experience spans the full data lifecycle, from ETL and warehousing to predictive modeling and visualization, creating systems that are both scalable and maintainable.</p>
+        </div>
+    </div>
+</section>
 
-            <div class="about-skills" id="skills">
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Data Pipeline Development</span>
-                        <span>95%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 95%;"></div>
-                    </div>
+<!-- WORK EXPERIENCE SECTION -->
+<section id="experience" class="section">
+    <div class="section-title">
+        <h2>Work Experience</h2>
+        <p>My professional journey in data engineering and analysis.</p>
+    </div>
+    <div class="experience-timeline">
+        <div class="experience-item">
+            <h3>Data Analyst Intern (Certification & Compliance)</h3>
+            <h4>Volvo Group</h4>
+            <p class="date">May 2023 - August 2023</p>
+            <ul>
+                <li>Automated ETL pipelines using Python, Pandas, SQL, and Azure Data Factory, improving data integrity and reducing manual effort by 60%.</li>
+                <li>Built scalable dashboards in Power BI and Vega-Lite, supporting executive decision-making and improving visibility into certification bottlenecks.</li>
+                <li>Served as a core data contributor supporting analytics for certification and compliance across engineering and production teams.</li>
+                <li>Defined KPIs and developed predictive models (scikit-learn) to forecast certification gaps and operational delays.</li>
+                <li>Implemented text mining (spaCy) on regulatory documents to surface key compliance indicators and reduce audit preparation time.</li>
+            </ul>
+        </div>
+        <div class="experience-item">
+            <h3>Data Solutions Engineer</h3>
+            <h4>FactSet</h4>
+            <p class="date">Nov 2022 - Aug 2023</p>
+            <ul>
+                <li>Partnered directly with global clients to understand analytical needs and developed custom data solutions using SQL, Python (Pandas), and Power Query.</li>
+                <li>Transformed client-side semi-structured data into structured datasets compatible with DB2 systems, enhancing integration with FactSet tools.</li>
+                <li>Automated data delivery and monitoring processes using Apache Airflow and Power Automate, reducing data latency and increasing reliability.</li>
+            </ul>
+        </div>
+        <div class="experience-item">
+            <h3>Full Stack Developer Intern</h3>
+            <h4>Cognizant</h4>
+            <p class="date">May 2022 - Oct 2022</p>
+            <ul>
+                <li>Developed RESTful APIs with response times under 200ms to support real-time data access for dashboards and machine learning pipelines.</li>
+                <li>Performed statistical analysis and visualization using R, generating insights that influenced product decisions and optimized ML models.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS SECTION -->
+<section id="skills" class="section">
+    <div class="section-title">
+        <h2>Technical Skills</h2>
+        <p>A snapshot of the languages, tools, and technologies I work with.</p>
+    </div>
+    <div class="skills-grid">
+        <div class="skill-category">
+            <h3>Languages & Libraries</h3>
+            <div class="skill-tags">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">R</span>
+                <span class="skill-tag">C++</span>
+                <span class="skill-tag">Pandas</span>
+                <span class="skill-tag">NumPy</span>
+                <span class="skill-tag">Scikit-learn</span>
+                <span class="skill-tag">spaCy</span>
+                <span class="skill-tag">Matplotlib</span>
+                <span class="skill-tag">Seaborn</span>
+                <span class="skill-tag">TensorFlow</span>
+                <span class="skill-tag">Keras</span>
+            </div>
+        </div>
+        <div class="skill-category">
+            <h3>Data & Analytics</h3>
+            <div class="skill-tags">
+                <span class="skill-tag">ETL</span>
+                <span class="skill-tag">A/B Testing</span>
+                <span class="skill-tag">Statistical Modeling</span>
+                <span class="skill-tag">Predictive Analytics</span>
+                <span class="skill-tag">Data Warehousing</span>
+                <span class="skill-tag">Data Mining</span>
+            </div>
+        </div>
+        <div class="skill-category">
+            <h3>Cloud & Databases</h3>
+            <div class="skill-tags">
+                <span class="skill-tag">Microsoft Azure</span>
+                <span class="skill-tag">AWS Glue</span>
+                <span class="skill-tag">Firebase</span>
+                <span class="skill-tag">InfluxDB</span>
+                <span class="skill-tag">MySQL</span>
+                <span class="skill-tag">MongoDB</span>
+                <span class="skill-tag">DB2</span>
+            </div>
+        </div>
+        <div class="skill-category">
+            <h3>Tools & Platforms</h3>
+            <div class="skill-tags">
+                <span class="skill-tag">Power BI</span>
+                <span class="skill-tag">Tableau</span>
+                <span class="skill-tag">Looker</span>
+                <span class="skill-tag">Apache Airflow</span>
+                <span class="skill-tag">Power Automate</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Excel</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- UPDATED PROJECTS SECTION -->
+<section id="projects" class="section">
+    <div class="section-title">
+        <h2>My Projects</h2>
+        <p>Here are some key projects showcasing my expertise in data analysis and machine learning.</p>
+    </div>
+    <div class="projects-grid">
+        <div class="project-card">
+            <div class="project-img">
+                <img src="https://placehold.co/400x200/a7f3d0/065f46?text=Stock+Forecasting" alt="Stock Price Forecasting">
+            </div>
+            <div class="project-info">
+                <h3>Stock Price Forecasting</h3>
+                <p>Performed Exploratory Data Analysis (EDA) on historical stock prices (Apple, Google, Nvidia) to identify trends and volatility. Developed time series models and automated EDA workflows by preprocessing over 11,000 records. Presented actionable findings through dynamic dashboards in Power BI to guide risk assessment.</p>
+                <div class="project-tags">
+                    <span class="project-tag">Python</span>
+                    <span class="project-tag">Pandas</span>
+                    <span class="project-tag">Time Series</span>
+                    <span class="project-tag">EDA</span>
+                    <span class="project-tag">Power BI</span>
                 </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Cloud Platforms (AWS, Azure, GCP)</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 90%;"></div>
-                    </div>
+                <div class="project-links">
+                    <a href="https://github.com/k-sahi/stock-forecasting" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                 </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>ETL/ELT Processes</span>
-                        <span>92%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 92%;"></div>
-                    </div>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-img">
+                <img src="https://placehold.co/400x200/bfdbfe/1e40af?text=Fake+News" alt="Fake News Detection">
+            </div>
+            <div class="project-info">
+                <h3>Fake News Detection</h3>
+                <p>An advanced system built on fine-tuned DeBERTa-v3 models using the FEVER dataset, enhanced with LLM verification (GPT-4), fact database cross-checks, and a RAG fallback with live Google Search via SerpAPI.</p>
+                <div class="project-tags">
+                    <span class="project-tag">DeBERTa-v3</span>
+                    <span class="project-tag">LLM</span>
+                    <span class="project-tag">RAG</span>
+                    <span class="project-tag">Streamlit</span>
+                    <span class="project-tag">FastAPI</span>
                 </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Big Data Technologies (Spark, Hadoop)</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%;"></div>
-                    </div>
+                <div class="project-links">
+                    <a href="https://github.com/k-sahi/Fake-news-detection" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                 </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Database Management (SQL/NoSQL)</span>
-                        <span>88%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 88%;"></div>
-                    </div>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-img">
+                <img src="https://placehold.co/400x200/fed7aa/7c2d12?text=CyberEduPortal" alt="CyberEduPortal">
+            </div>
+            <div class="project-info">
+                <h3>CyberEduPortal</h3>
+                <p>A web-based cybersecurity education platform built with Django, featuring a clean, responsive interface. It supports admin, contributor, and general user roles, offering access to courses, modules, and materials.</p>
+                <div class="project-tags">
+                    <span class="project-tag">Django</span>
+                    <span class="project-tag">Python</span>
+                    <span class="project-tag">SQLite</span>
+                    <span class="project-tag">Web Development</span>
                 </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Machine Learning Pipelines</span>
-                        <span>80%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 80%;"></div>
-                    </div>
+                <div class="project-links">
+                    <a href="https://github.com/k-sahi/CyberEduPortal" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section id="projects" class="section">
+<!-- CERTIFICATIONS SECTION -->
+<section id="certifications" class="section">
     <div class="section-title">
-        <h2>My Projects</h2>
-        <p>Here are some of the key projects I've worked on, showcasing my expertise in data engineering and architecture.</p>
+        <h2>Certifications</h2>
+        <p>My commitment to continuous learning and professional development.</p>
     </div>
-    <div class="projects-grid">
-        <!-- Project 1 -->
-        <div class="project-card animate delay-1">
-            <div class="project-img">
-                <img src="https://placehold.co/400x200/a7f3d0/065f46?text=Data+Lake" alt="Enterprise Data Lake Platform">
-            </div>
-            <div class="project-info">
-                <h3>Enterprise Data Lake Platform</h3>
-                <p>Designed and implemented a scalable data lake on AWS S3, enabling centralized storage and processing of diverse data sources. Optimized data ingestion from various APIs and databases.</p>
-                <div class="project-tags">
-                    <span class="project-tag">AWS</span>
-                    <span class="project-tag">S3</span>
-                    <span class="project-tag">Glue</span>
-                    <span class="project-tag">Lambda</span>
-                    <span class="project-tag">Python</span>
-                </div>
-                <div class="project-links">
-                    <a href="#" target="_blank"><i class="fas fa-link"></i> Live Demo</a>
-                    <a href="https://github.com/k-sahi/data-lake-platform" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                </div>
-            </div>
+    <div class="certifications-grid">
+        <div class="certification-card">
+            <i class="fas fa-award"></i>
+            <span>Microsoft Certified: Power BI Data Analyst Associate</span>
         </div>
-
-        <!-- Project 2 -->
-        <div class="project-card animate delay-2">
-            <div class="project-img">
-                <img src="https://placehold.co/400x200/fed7aa/7c2d12?text=ETL+Automation" alt="Automated ETL Framework">
-            </div>
-            <div class="project-info">
-                <h3>Automated ETL Framework</h3>
-                <p>Developed a robust and automated ETL framework using Apache Airflow and Spark, reducing manual intervention by 70% and improving data refresh rates for critical business reports.</p>
-                <div class="project-tags">
-                    <span class="project-tag">Apache Airflow</span>
-                    <span class="project-tag">Spark</span>
-                    <span class="project-tag">Python</span>
-                    <span class="project-tag">Data Warehousing</span>
-                </div>
-                <div class="project-links">
-                    <a href="#" target="_blank"><i class="fas fa-link"></i> Live Demo</a>
-                    <a href="https://github.com/k-sahi/etl-framework" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                </div>
-            </div>
+        <div class="certification-card">
+            <i class="fas fa-award"></i>
+            <span>IBM Data Analyst Professional Certificate</span>
         </div>
-
-        <!-- Project 3 -->
-        <div class="project-card animate delay-3">
-            <div class="project-img">
-                <img src="https://placehold.co/400x200/bfdbfe/1e40af?text=ML+Pipeline" alt="Real-time ML Data Pipeline">
-            </div>
-            <div class="project-info">
-                <h3>Real-time ML Data Pipeline</h3>
-                <p>Built a real-time data pipeline for machine learning models using Kafka and Flink, enabling immediate data processing for fraud detection and personalized recommendations.</p>
-                <div class="project-tags">
-                    <span class="project-tag">Kafka</span>
-                    <span class="project-tag">Apache Flink</span>
-                    <span class="project-tag">Machine Learning</span>
-                    <span class="project-tag">Real-time Data</span>
-                </div>
-                <div class="project-links">
-                    <a href="#" target="_blank"><i class="fas fa-link"></i> Live Demo</a>
-                    <a href="https://github.com/k-sahi/ml-pipeline" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                </div>
-            </div>
+        <div class="certification-card">
+            <i class="fas fa-award"></i>
+            <span>Udacity – A/B Testing for Data Science</span>
         </div>
-
-        <!-- Project 4 (Added) -->
-        <div class="project-card animate delay-1">
-            <div class="project-img">
-                <img src="https://placehold.co/400x200/fecaca/991b1b?text=Data+Governance" alt="Data Governance & Quality System">
-            </div>
-            <div class="project-info">
-                <h3>Data Governance & Quality System</h3>
-                <p>Implemented a data governance framework and quality checks for critical datasets, leading to a 25% reduction in data errors and improved trust in data assets.</p>
-                <div class="project-tags">
-                    <span class="project-tag">Data Quality</span>
-                    <span class="project-tag">Data Catalog</span>
-                    <span class="project-tag">Metadata</span>
-                    <span class="project-tag">SQL</span>
-                </div>
-                <div class="project-links">
-                    <a href="#" target="_blank"><i class="fas fa-link"></i> Live Demo</a>
-                    <a href="https://github.com/k-sahi/data-governance" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                </div>
-            </div>
+        <div class="certification-card">
+            <i class="fas fa-award"></i>
+            <span>Looker Business Analyst Certification</span>
         </div>
     </div>
 </section>
@@ -785,21 +966,21 @@
                 <i class="fas fa-map-marker-alt"></i>
                 <div>
                     <h3>Location</h3>
-                    <p>Dartmouth, MA, USA</p>
+                    <p>Boston, MA</p>
                 </div>
             </div>
             <div class="contact-item">
                 <i class="fas fa-envelope"></i>
                 <div>
                     <h3>Email</h3>
-                    <p>sahithi.keshireddy@example.com</p>
+                    <p><a href="mailto:keshireddysahithi@outlook.com">keshireddysahithi@outlook.com</a></p>
                 </div>
             </div>
             <div class="contact-item">
                 <i class="fas fa-phone"></i>
                 <div>
                     <h3>Phone</h3>
-                    <p>+1 (123) 456-7890</p>
+                    <p><a href="tel:+18565027408">+1 (856) 502-7408</a></p>
                 </div>
             </div>
         </div>
@@ -832,7 +1013,7 @@
         <a href="https://www.linkedin.com/in/sahithi-keshireddy/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         <a href="https://github.com/k-sahi" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
     </div>
-    <p class="copyright">&copy; 2025 Sahithi Keshireddy. All rights reserved.</p>
+    <p class="copyright">© 2025 Sahithi Keshireddy. All rights reserved.</p>
 </footer>
 
 <script>
@@ -849,7 +1030,10 @@
         // Close mobile menu when a link is clicked
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
-                nav.classList.remove('active');
+                // Only close menu if it's a hash link and menu is active
+                if (link.getAttribute('href').startsWith('#') && nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                }
             });
         });
 
@@ -861,60 +1045,6 @@
                     behavior: 'smooth'
                 });
             });
-        });
-
-        // Animate skill bars on scroll
-        const skillBars = document.querySelectorAll('.skill-progress');
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.5 // Trigger when 50% of the item is visible
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const skillProgress = entry.target;
-                    const width = skillProgress.style.width; // Get the target width from inline style
-                    skillProgress.style.width = width; // Re-apply to trigger animation
-                    observer.unobserve(skillProgress); // Stop observing once animated
-                }
-            });
-        }, observerOptions);
-
-        skillBars.forEach(bar => {
-            observer.observe(bar);
-        });
-
-        // Add animation class to sections on scroll
-        const sections = document.querySelectorAll('.section, .hero-content');
-        const sectionObserverOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1 // Trigger when 10% of the section is visible
-        };
-
-        const sectionObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                    if (entry.target.id === 'about') {
-                        document.querySelector('.about-img').classList.add('animate', 'delay-1');
-                        document.querySelector('.about-content').classList.add('animate', 'delay-2');
-                    }
-                    if (entry.target.id === 'projects') {
-                        document.querySelectorAll('.project-card').forEach((card, index) => {
-                            card.classList.add('animate');
-                            card.style.animationDelay = `${index * 0.2}s`;
-                        });
-                    }
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, sectionObserverOptions);
-
-        sections.forEach(section => {
-            sectionObserver.observe(section);
         });
     });
 </script>
