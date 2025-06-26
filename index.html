@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
@@ -56,8 +56,7 @@
         .section-title { text-align: center; margin-bottom: 4rem; }
         .section-title h2 { font-size: 2.5rem; }
         .section-title p { font-size: 1.1rem; color: #64748b; }
-
-        /* FIXED: Restored About Me grid and image styles */
+        
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
         .about-img { border-radius: 8px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
         .about-img img { width: 100%; display: block; transition: transform 0.3s ease; }
@@ -70,9 +69,11 @@
         #timeline-path { stroke: var(--primary); stroke-width: 3; fill: none; stroke-dasharray: 1000; stroke-dashoffset: 1000; }
         .experience-item { position: relative; margin-bottom: 3rem; background-color: white; padding: 2rem; border-radius: 8px; margin-left: 2rem; }
         .experience-item::before { content: ''; position: absolute; left: -2.3rem; top: 25px; width: 14px; height: 14px; border-radius: 50%; background-color: var(--primary); border: 3px solid white; z-index: 10; }
-        .experience-item h3 { color: var(--primary); }
+        .experience-item h3 { color: var(--primary); font-size: 1.25rem; }
+        .experience-item h4 { font-size: 1rem; color: var(--dark); font-weight: 500;}
+        .experience-item .date { font-size: 0.9rem; color: #64748b; margin-bottom: 1rem; }
         .experience-item ul { list-style: none; padding-left: 0; margin-top: 1rem; }
-        .experience-item ul li { position: relative; padding-left: 25px; }
+        .experience-item ul li { position: relative; padding-left: 25px; margin-bottom: 0.75rem; color: #475569; }
         .experience-item ul li::before { content: '\f058'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; top: 4px; color: var(--secondary); }
 
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
@@ -81,7 +82,8 @@
         .project-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
         .project-card:hover .project-img img { transform: scale(1.05); }
         .project-info { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
-        .project-info p { flex-grow: 1; margin: 0.5rem 0 1rem 0; }
+        .project-info h3 { font-size: 1.1rem; }
+        .project-info p { flex-grow: 1; margin: 0.5rem 0 1rem 0; font-size: 0.95rem; }
         .project-links a { color: var(--primary); text-decoration: none; display: inline-flex; align-items: center; gap: 5px; font-weight: 500; }
 
         #education { background-color: rgba(255, 255, 255, 0.95); }
@@ -89,16 +91,19 @@
         .education-item { background-color: var(--light); padding: 2rem; border-radius: 8px; border-left: 4px solid var(--secondary); }
         .education-header { display: flex; align-items: flex-start; gap: 1.5rem; }
         .education-header i { font-size: 1.8rem; color: var(--primary); }
-
+        .education-item .courses { font-size: 0.9rem; color: #64748b; }
+        
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        .skill-category { padding: 2rem; background-color: var(--light); border-radius: 8px; border-left: 4px solid var(--primary); }
-        .skill-tags { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-        .skill-tag { background-color: var(--gray); padding: 0.4rem 0.9rem; border-radius: 20px; }
+        .skill-category { padding: 1.5rem; background-color: var(--light); border-radius: 8px; border-left: 4px solid var(--primary); }
+        .skill-category h3 { font-size: 1.1rem; margin-bottom: 1rem; }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .skill-tag { background-color: var(--gray); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem; }
 
         #certifications { background-color: rgba(255, 255, 255, 0.95); }
         .certifications-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
         .certification-card { background-color: var(--light); padding: 1.5rem; border-radius: 8px; display: flex; align-items: center; gap: 1.5rem; }
         .certification-card i { color: var(--secondary); font-size: 2rem; }
+        .certification-card span { font-weight: 500; }
 
         #contact { background-color: transparent; box-shadow: none; }
         #contact .section-title h2, #contact .section-title p { color: var(--light); }
@@ -113,11 +118,11 @@
         .form-group label { display: block; margin-bottom: 0.5rem; color: var(--light); }
         .form-control { width: 100%; padding: 0.8rem; background-color: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 4px; }
         .form-control:focus { outline: none; border-color: var(--secondary); }
-
+        
         footer { text-align: center; padding: 4rem 2rem 2rem 2rem; color: var(--gray); }
         .social-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; }
         .social-links a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background-color: rgba(255, 255, 255, 0.1); border-radius: 50%; color: white; }
-
+        
         @media (max-width: 992px) {
             .hero-content, .about-grid { grid-template-columns: 1fr; text-align: center; }
             #constellation-container { height: 300px; margin-top: 2rem; }
@@ -136,7 +141,7 @@
 
 <header>
     <div class="nav-container">
-        <div class="logo"><img src="profile-emoji.png" alt="Sahithi's Emoji" onerror="this.onerror=null; this.src='https://placehold.co/40x40/2563eb/ffffff?text=SK'"><span>Sahithi Keshireddy</span></div>
+        <div class="logo"><img src="/images/profile-emoji.png" alt="Sahithi's Emoji" onerror="this.onerror=null; this.src='https://placehold.co/40x40/2563eb/ffffff?text=SK'"><span>Sahithi Keshireddy</span></div>
         <div class="mobile-menu"><i class="fas fa-bars"></i></div>
         <nav>
             <ul>
@@ -160,15 +165,11 @@
         </div>
     </section>
 
-    <!-- FIXED: Restored the full About Me section -->
     <section id="about" class="section">
-        <div class="section-title">
-            <h2>About Me</h2>
-            <p>Energetic and results-oriented Data Engineer with proven experience in building scalable data solutions.</p>
-        </div>
+        <div class="section-title"><h2>About Me</h2></div>
         <div class="about-grid">
             <div class="about-img">
-                <img src="profile-photo.png" alt="Sahithi Keshireddy" onerror="this.onerror=null; this.src='https://placehold.co/600x400/e0f2f7/2563eb?text=Sahithi+Keshireddy'">
+                <img src="/images/profile-photo.png" alt="Sahithi Keshireddy" onerror="this.onerror=null; this.src='https://placehold.co/600x400/e0f2f7/2563eb?text=Sahithi+Keshireddy'">
             </div>
             <div class="about-content">
                 <h3>Data Engineering Specialist</h3>
@@ -177,11 +178,11 @@
             </div>
         </div>
     </section>
-
+    
     <section id="education" class="section">
         <div class="section-title"><h2>Education</h2></div>
         <div class="education-grid">
-            <div class="education-item"><div class="education-header"><i class="fas fa-graduation-cap"></i><div><h3>Masters, Computer and Information Science</h3><p>University of Massachusetts Dartmouth</p></div></div><p class="date">Expected May 2025 | Dartmouth, MA, USA</p></div>
+            <div class="education-item"><div class="education-header"><i class="fas fa-graduation-cap"></i><div><h3>Masters, Computer and Information Science</h3><p>University of Massachusetts Dartmouth</p></div></div><p class="date">Expected May 2025 | Dartmouth, MA, USA</p><p class="courses"><b>Courses:</b> Database Management, Data Visualization, Data Mining, Design and Analysis of Algorithms, Advanced Machine Learning, AI.</p></div>
             <div class="education-item"><div class="education-header"><i class="fas fa-graduation-cap"></i><div><h3>Bachelor of Technology, Computer Science</h3><p>Jawaharlal Nehru Technological University</p></div></div><p class="date">Graduated May 2022 | Hyderabad, India</p></div>
         </div>
     </section>
@@ -190,37 +191,39 @@
         <div class="section-title"><h2>Work Experience</h2></div>
         <div class="experience-timeline">
             <svg id="timeline-svg"><path id="timeline-path" d="M 0 0 V 1000" /></svg>
-            <div class="experience-item"><h3>Data Engineering Architect</h3><h4>Innovate Corp, San Francisco, CA</h4><div class="date">Jan 2023 - Present</div><ul><li>Led the design of a real-time data streaming platform using Kafka.</li><li>Migrated legacy jobs to serverless AWS Glue architecture.</li></ul></div>
-            <div class="experience-item"><h3>Senior Data Engineer</h3><h4>Data Solutions Inc, Austin, TX</h4><div class="date">Jun 2022 - Dec 2022</div><ul><li>Built and maintained ETL/ELT pipelines using Python, Airflow, and Spark.</li><li>Implemented data quality checks and monitoring systems.</li></ul></div>
+            <div class="experience-item"><h3>Data Analyst Intern (Certification & Compliance)</h3><h4>Volvo Group</h4><div class="date">May 2023 - August 2023</div><ul><li>Automated ETL pipelines using Python, Pandas, SQL, and Azure Data Factory, improving data integrity and reducing manual effort by 60%.</li><li>Built scalable dashboards in Power BI and Vega-Lite, supporting executive decision-making and improving visibility into certification bottlenecks.</li><li>Defined KPIs and developed predictive models (scikit-learn) to forecast certification gaps and operational delays.</li><li>Implemented text mining (spaCy) on regulatory documents to surface key compliance indicators.</li></ul></div>
+            <div class="experience-item"><h3>Data Solutions Engineer</h3><h4>FactSet</h4><div class="date">Nov 2022 - Aug 2023</div><ul><li>Partnered with global clients to develop custom data solutions using SQL, Python (Pandas), and Power Query.</li><li>Transformed semi-structured data into structured datasets compatible with DB2 systems for Power BI dashboards.</li><li>Automated data delivery and monitoring using Apache Airflow and Power Automate.</li></ul></div>
+            <div class="experience-item"><h3>Full Stack Developer Intern</h3><h4>Cognizant</h4><div class="date">May 2022 - Oct 2022</div><ul><li>Developed RESTful APIs with response times under 200ms for real-time data access.</li><li>Performed statistical analysis and visualization using R, generating insights that influenced product decisions.</li></ul></div>
         </div>
     </section>
 
     <section id="skills" class="section">
         <div class="section-title"><h2>Technical Skills</h2></div>
         <div class="skills-grid">
-            <div class="skill-category"><h3>Languages & Databases</h3><div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span class="skill-tag">Java</span></div></div>
-            <div class="skill-category"><h3>Big Data & ETL</h3><div class="skill-tags"><span class="skill-tag">Spark</span><span class="skill-tag">Kafka</span><span class="skill-tag">Airflow</span></div></div>
-            <div class="skill-category"><h3>Cloud & DevOps</h3><div class="skill-tags"><span class="skill-tag">AWS</span><span class="skill-tag">Azure</span><span class="skill-tag">Docker</span></div></div>
-            <div class="skill-category"><h3>BI & Visualization</h3><div class="skill-tags"><span class="skill-tag">Tableau</span><span class="skill-tag">Power BI</span></div></div>
+            <div class="skill-category"><h3>Languages</h3><div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">Java</span><span class="skill-tag">R</span><span class="skill-tag">C++</span></div></div>
+            <div class="skill-category"><h3>Libraries</h3><div class="skill-tags"><span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span><span class="skill-tag">Scikit-learn</span><span class="skill-tag">spaCy</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">Keras</span></div></div>
+            <div class="skill-category"><h3>Cloud & DBs</h3><div class="skill-tags"><span class="skill-tag">Microsoft Azure</span><span class="skill-tag">AWS Glue</span><span class="skill-tag">Firebase</span><span class="skill-tag">MySQL</span><span class="skill-tag">MongoDB</span></div></div>
+            <div class="skill-category"><h3>Tools</h3><div class="skill-tags"><span class="skill-tag">Power BI</span><span class="skill-tag">Tableau</span><span class="skill-tag">Airflow</span><span class="skill-tag">GIT</span><span class="skill-tag">Docker</span><span class="skill-tag">Looker</span></div></div>
         </div>
     </section>
 
     <section id="projects" class="section">
         <div class="section-title"><h2>Projects</h2></div>
         <div class="projects-grid">
-            <div class="project-card"><div class="project-img"><img src="https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=600&q=80" alt="Stock Price Prediction"></div><div class="project-info"><h3>Stock Price Prediction</h3><p>Developed a dashboard to analyze real-time stock market data.</p><div class="project-links"><a href="https://github.com/k-sahi/Stock-price-prediction" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></div></div></div>
-            <div class="project-card"><div class="project-img"><img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=600&q=80" alt="Fake News Detection"></div><div class="project-info"><h3>Fake News Detection</h3><p>Used NLP and ML to classify news articles as real or fake.</p><div class="project-links"><a href="https://github.com/k-sahi/Fake-news-detection" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></div></div></div>
+            <div class="project-card"><div class="project-img"><img src="https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=600&q=80" alt="Stock Price Forecasting"></div><div class="project-info"><h3>Stock Price Forecasting</h3><p>Performed EDA on historical stock prices to identify trends and developed time series models to enable data-driven investment insights.</p><div class="project-links"><a href="https://github.com/k-sahi/Stock-price-prediction" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></div></div></div>
+            <div class="project-card"><div class="project-img"><img src="https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&w=600&q=80" alt="A/B Testing"></div><div class="project-info"><h3>Statistical Analysis: A/B testing and Machine Learning</h3><p>Analyzed conversion rates to conclude that the old webpage performed better statistically. Applied logistic regression to model user behavior.</p><div class="project-links"><a href="https://github.com/k-sahi/Webpage-A-B-Test-with-Logistic-Regression" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></div></div></div>
+            <div class="project-card"><div class="project-img"><img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=600&q=80" alt="Fake News Detection"></div><div class="project-info"><h3>Fake News Detection</h3><p>Used NLP and machine learning models to classify news articles as real or fake with high accuracy.</p><div class="project-links"><a href="https://github.com/k-sahi/Fake-news-detection" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></div></div></div>
             <div class="project-card"><div class="project-img"><img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=600&q=80" alt="Cyber Education Portal"></div><div class="project-info"><h3>Cyber Education Portal</h3><p>A full-stack web app for cybersecurity education and awareness.</p><div class="project-links"><a href="https://github.com/k-sahi/CyberEduPortal" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></div></div></div>
-            <div class="project-card"><div class="project-img"><img src="https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&w=600&q=80" alt="A/B Testing"></div><div class="project-info"><h3>Webpage A/B Test</h3><p>Analyzed A/B test results with logistic regression to improve conversion rates.</p><div class="project-links"><a href="https://github.com/k-sahi/Webpage-A-B-Test-with-Logistic-Regression" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></div></div></div>
         </div>
     </section>
 
     <section id="certifications" class="section">
         <div class="section-title"><h2>Certifications</h2></div>
         <div class="certifications-grid">
-            <div class="certification-card"><i class="fab fa-aws"></i> <span>AWS Certified Data Analytics – Specialty</span></div>
-            <div class="certification-card"><i class="fas fa-database"></i> <span>Azure Data Fundamentals</span></div>
-            <div class="certification-card"><i class="fas fa-cogs"></i> <span>Databricks Certified Spark Developer</span></div>
+            <div class="certification-card"><i class="fas fa-certificate"></i> <span>Microsoft Certified: Power BI Data Analyst Associate</span></div>
+            <div class="certification-card"><i class="fab fa-ibm"></i> <span>IBM Data Analyst Professional Certificate</span></div>
+            <div class="certification-card"><i class="fas fa-chart-line"></i> <span>Udacity - A/B Testing for Data Science</span></div>
+            <div class="certification-card"><i class="fas fa-search"></i> <span>Looker Business Analyst Certification</span></div>
         </div>
     </section>
 
@@ -229,8 +232,8 @@
         <div class="contact-container">
             <div class="contact-info">
                 <div class="contact-item"><i class="fas fa-map-marker-alt"></i><p>Dartmouth, MA, USA<br><small>Open to relocation</small></p></div>
-                <div class="contact-item"><i class="fas fa-envelope"></i><p><a href="mailto:sahithi.keshireddy@example.com">sahithi.keshireddy@example.com</a></p></div>
-                <div class="contact-item"><i class="fab fa-linkedin"></i><p><a href="#" target="_blank">linkedin.com/in/sahithikeshireddy</a></p></div>
+                <div class="contact-item"><i class="fas fa-envelope"></i><p><a href="mailto:keshireddysahithi@outlook.com">keshireddysahithi@outlook.com</a></p></div>
+                <div class="contact-item"><i class="fab fa-linkedin"></i><p><a href="https://linkedin.com/in/sahithi-keshireddy/" target="_blank" rel="noopener noreferrer">linkedin.com/in/sahithi-keshireddy</a></p></div>
             </div>
             <div class="contact-form-container">
                 <form class="contact-form">
@@ -247,7 +250,7 @@
 <footer>
     <div class="social-links">
         <a href="https://github.com/k-sahi" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://linkedin.com/in/sahithi-keshireddy/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
     </div>
     <p>© 2024 Sahithi Keshireddy. All Rights Reserved.</p>
 </footer>
@@ -287,7 +290,7 @@
         conScene = new THREE.Scene();
         const canvas = document.getElementById('constellation-canvas');
         conRenderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-
+        
         conCamera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
         conCamera.position.z = 2.5;
 
@@ -298,13 +301,13 @@
             const phi = Math.acos(-1 + (2 * i) / (skills.length - 1));
             const theta = Math.sqrt(skills.length * Math.PI) * phi;
             const point = new THREE.Vector3().setFromSphericalCoords(1.2, phi, theta);
-
+            
             const geo = new THREE.SphereGeometry(0.05, 16, 16);
             const mat = new THREE.MeshBasicMaterial({ color: 0x10b981 });
             const mesh = new THREE.Mesh(geo, mat);
             mesh.position.copy(point);
             skillPointsGroup.add(mesh);
-
+            
             const labelDiv = document.createElement('div');
             labelDiv.className = 'skill-label';
             labelDiv.textContent = skill;
@@ -337,16 +340,16 @@
             },
         });
     }
-
+    
     // --- Main Animation Loop ---
     function animate() {
         requestAnimationFrame(animate);
         particleSystem.rotation.y += 0.0005;
         bgRenderer.render(bgScene, bgCamera);
-
+        
         if (conScene) {
             if (!isDragging) { skillPointsGroup.rotation.y += 0.001; }
-
+            
             skillLabels.forEach(item => {
                 const screenPosition = item.mesh.position.clone().project(conCamera);
                 const x = (screenPosition.x * conRenderer.domElement.clientWidth / 2) + conRenderer.domElement.clientWidth / 2;
@@ -363,7 +366,7 @@
         bgCamera.aspect = window.innerWidth / window.innerHeight;
         bgCamera.updateProjectionMatrix();
         bgRenderer.setSize(window.innerWidth, window.innerHeight);
-
+        
         const conContainer = document.getElementById('constellation-container');
         if (conContainer && conContainer.clientWidth > 0) {
             conCamera.aspect = conContainer.clientWidth / conContainer.clientHeight;
