@@ -57,6 +57,14 @@
         .section-title h2 { font-size: 2.5rem; }
         .section-title p { font-size: 1.1rem; color: #64748b; }
 
+        /* FIXED: Restored About Me grid and image styles */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .about-img { border-radius: 8px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .about-img img { width: 100%; display: block; transition: transform 0.3s ease; }
+        .about-img:hover img { transform: scale(1.05); }
+        .about-content h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+        .about-content p { margin-bottom: 1rem; color: #475569; }
+
         .experience-timeline { position: relative; max-width: 800px; margin: 0 auto; }
         #timeline-svg { position: absolute; left: 0; top: 0; height: 100%; overflow: visible; transform: translateX(-1.5rem); }
         #timeline-path { stroke: var(--primary); stroke-width: 3; fill: none; stroke-dasharray: 1000; stroke-dashoffset: 1000; }
@@ -111,7 +119,7 @@
         .social-links a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background-color: rgba(255, 255, 255, 0.1); border-radius: 50%; color: white; }
 
         @media (max-width: 992px) {
-            .hero-content { grid-template-columns: 1fr; text-align: center; }
+            .hero-content, .about-grid { grid-template-columns: 1fr; text-align: center; }
             #constellation-container { height: 300px; margin-top: 2rem; }
         }
         @media (max-width: 768px) {
@@ -128,7 +136,7 @@
 
 <header>
     <div class="nav-container">
-        <div class="logo"><img src="/images/profile-emoji.png" alt="Sahithi's Emoji" onerror="this.onerror=null; this.src='https://placehold.co/40x40/2563eb/ffffff?text=SK'"><span>Sahithi Keshireddy</span></div>
+        <div class="logo"><img src="profile-emoji.png" alt="Sahithi's Emoji" onerror="this.onerror=null; this.src='https://placehold.co/40x40/2563eb/ffffff?text=SK'"><span>Sahithi Keshireddy</span></div>
         <div class="mobile-menu"><i class="fas fa-bars"></i></div>
         <nav>
             <ul>
@@ -152,9 +160,22 @@
         </div>
     </section>
 
+    <!-- FIXED: Restored the full About Me section -->
     <section id="about" class="section">
-        <div class="section-title"><h2>About Me</h2></div>
-        <p style="text-align: center; max-width: 800px; margin: -2rem auto 0 auto;">With 3+ years of experience, I specialize in designing and implementing high-performance data pipelines, developing insightful analytics, and building machine learning models that drive business value.</p>
+        <div class="section-title">
+            <h2>About Me</h2>
+            <p>Energetic and results-oriented Data Engineer with proven experience in building scalable data solutions.</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-img">
+                <img src="profile-photo.png" alt="Sahithi Keshireddy" onerror="this.onerror=null; this.src='https://placehold.co/600x400/e0f2f7/2563eb?text=Sahithi+Keshireddy'">
+            </div>
+            <div class="about-content">
+                <h3>Data Engineering Specialist</h3>
+                <p>With 3+ years of experience, I specialize in designing and implementing high-performance data pipelines, developing insightful analytics, and building machine learning models that drive business value.</p>
+                <p>I'm passionate about leveraging cutting-edge technologies to solve complex data challenges. My experience spans the full data lifecycle, from ETL and warehousing to predictive modeling and visualization, creating systems that are both scalable and maintainable.</p>
+            </div>
+        </div>
     </section>
 
     <section id="education" class="section">
@@ -264,11 +285,11 @@
         if (!container) return;
 
         conScene = new THREE.Scene();
-        conCamera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-        conCamera.position.z = 2.5;
-
         const canvas = document.getElementById('constellation-canvas');
         conRenderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+
+        conCamera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+        conCamera.position.z = 2.5;
 
         const skills = ['Python', 'AWS', 'Spark', 'SQL', 'Kafka', 'Tableau'];
         skillPointsGroup = new THREE.Group();
@@ -320,11 +341,9 @@
     // --- Main Animation Loop ---
     function animate() {
         requestAnimationFrame(animate);
-        // Animate background
         particleSystem.rotation.y += 0.0005;
         bgRenderer.render(bgScene, bgCamera);
 
-        // Animate constellation
         if (conScene) {
             if (!isDragging) { skillPointsGroup.rotation.y += 0.001; }
 
@@ -332,8 +351,8 @@
                 const screenPosition = item.mesh.position.clone().project(conCamera);
                 const x = (screenPosition.x * conRenderer.domElement.clientWidth / 2) + conRenderer.domElement.clientWidth / 2;
                 const y = -(screenPosition.y * conRenderer.domElement.clientHeight / 2) + conRenderer.domElement.clientHeight / 2;
-                item.div.style.left = ${x}px;
-                item.div.style.top = ${y}px;
+                item.div.style.left = `${x}px`;
+                item.div.style.top = `${y}px`;
             });
             conRenderer.render(conScene, conCamera);
         }
@@ -341,12 +360,10 @@
 
     // --- Window Resize Handler ---
     function onResize() {
-        // Resize background
         bgCamera.aspect = window.innerWidth / window.innerHeight;
         bgCamera.updateProjectionMatrix();
         bgRenderer.setSize(window.innerWidth, window.innerHeight);
 
-        // Resize constellation
         const conContainer = document.getElementById('constellation-container');
         if (conContainer && conContainer.clientWidth > 0) {
             conCamera.aspect = conContainer.clientWidth / conContainer.clientHeight;
@@ -360,10 +377,9 @@
     initBackgroundScene();
     initConstellationScene();
     initSVGTimeline();
-    onResize(); // Call once to set initial sizes
+    onResize();
     animate();
 
-    // --- Mobile Menu Toggle ---
     const mobileMenu = document.querySelector('.mobile-menu');
     const nav = document.querySelector('nav');
     mobileMenu.addEventListener('click', () => nav.classList.toggle('active'));
