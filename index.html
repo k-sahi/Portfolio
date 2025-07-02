@@ -4,12 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sahithi Keshireddy | Data Analyst & Engineer</title>
+
+    <!-- Favicon: Make sure 'profile-emoji.png' is in the same folder -->
+    <link rel="icon" href="profile-emoji.png" type="image/png">
+
+    <!-- Fonts and Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+        /* --- CSS STYLES --- */
         :root {
             --bg-color-light: #ffffff;
             --text-color-light: #374151;
@@ -26,7 +32,6 @@
             --card-bg-dark: #1f2937;
         }
 
-        /* --- Theme Variables --- */
         [data-theme="light"] {
             --bg-color: var(--bg-color-light);
             --text-color: var(--text-color-light);
@@ -44,33 +49,25 @@
             --card-bg: var(--card-bg-dark);
         }
 
-        /* --- Base Styles --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { background-color: var(--bg-color); color: var(--text-color); font-family: 'Inter', sans-serif; line-height: 1.7; transition: background-color 0.3s, color 0.3s; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
 
-        /* --- Hero Section & Nav --- */
         #home { min-height: 100vh; display: flex; align-items: center; border-bottom: 1px solid var(--border-color); }
         .hero-content { display: flex; align-items: center; justify-content: space-between; gap: 4rem; width: 100%; }
         .hero-text h1 { font-family: 'Montserrat', sans-serif; font-size: 4rem; font-weight: 800; color: var(--heading-color); line-height: 1.1; }
         .hero-text .subtitle { font-size: 1.25rem; font-weight: 500; margin-top: 0.5rem; color: var(--primary-color); }
-        .hero-image { width: 350px; height: 350px; border-radius: 50%; object-fit: cover; }
+        .hero-image { width: 350px; height: 350px; border-radius: 50%; object-fit: cover; border: 5px solid var(--card-bg); box-shadow: 0 10px 30px rgba(0,0,0,0.1);}
         .hero-image-container { position: relative; }
         #theme-toggle { position: absolute; top: 20px; right: 20px; font-size: 1.5rem; color: var(--heading-color); cursor: pointer; background-color: var(--bg-color); padding: 5px; border-radius: 50%; }
 
-        /* --- General Section Styles --- */
         main { background-color: var(--bg-color); }
         .section { padding: 5rem 0; border-bottom: 1px solid var(--border-color); }
         .section:last-child { border-bottom: none; }
         .section-title { text-align: center; margin-bottom: 4rem; }
         .section-title h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: var(--heading-color); }
 
-        /* --- Experience Section --- */
-        .timeline-wrapper { max-height: 550px; overflow-y: auto; padding-right: 1rem; }
-        .timeline-wrapper::-webkit-scrollbar { width: 8px; }
-        .timeline-wrapper::-webkit-scrollbar-track { background: var(--card-bg); }
-        .timeline-wrapper::-webkit-scrollbar-thumb { background: var(--primary-color); border-radius: 4px; }
         .timeline-item { border-left: 3px solid var(--primary-color); padding-left: 2rem; position: relative; margin-bottom: 3rem; }
         .timeline-item:last-child { margin-bottom: 0; }
         .timeline-item::before { content: ''; width: 15px; height: 15px; background-color: var(--primary-color); border-radius: 50%; position: absolute; left: -9px; top: 5px; }
@@ -80,18 +77,21 @@
         .timeline-item ul li { margin-bottom: 0.5rem; position: relative; padding-left: 1.5rem; }
         .timeline-item ul li::before { content: '›'; position: absolute; left: 0; color: var(--primary-color); font-weight: 700; }
 
-        /* --- Skills Section --- */
-        .skills-matrix-wrapper { display: flex; gap: 4rem; align-items: center; }
+        .skills-matrix-wrapper { display: flex; gap: 4rem; align-items: flex-start; }
         .skills-list { flex: 1.2; }
         .chart-wrapper { flex: 0.8; height: 400px; }
         .matrix-skill-category { margin-bottom: 1.5rem; }
         .matrix-skill-category h3 { font-size: 1.1rem; color: var(--heading-color); border-left: 3px solid var(--primary-color); padding-left: 1rem; margin-bottom: 1rem; font-weight: 700; }
         .matrix-skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-        .matrix-skill-tag { background-color: var(--card-bg); color: var(--text-color); border: 1px solid var(--border-color); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.9rem; }
+        .matrix-skill-tag { background-color: var(--card-bg); color: var(--text-color); border: 1px solid var(--border-color); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.9rem; cursor: pointer; transition: all 0.2s ease-in-out; }
+        .matrix-skill-tag:hover { transform: translateY(-2px); border-color: var(--primary-color); }
+        .matrix-skill-tag.active { background-color: var(--primary-color); color: #ffffff; border-color: var(--primary-color); }
 
-        /* --- Projects Section --- */
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .project-card { background-color: var(--card-bg); padding: 2rem; border-radius: 8px; display: flex; flex-direction: column; }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; transition: all 0.3s ease; }
+        .project-card { background-color: var(--card-bg); border-radius: 8px; display: flex; flex-direction: column; overflow: hidden; transition: all 0.3s ease; border: 1px solid var(--border-color); }
+        .project-card.hidden { display: none; }
+        .project-thumbnail { width: 100%; height: 180px; object-fit: cover; }
+        .project-card .project-content { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
         .project-card h3 { color: var(--heading-color); margin-bottom: 0.5rem; }
         .project-card p { flex-grow: 1; margin-bottom: 1rem; }
         .project-tech { font-size: 0.9rem; color: var(--primary-color); font-weight: 500; margin-bottom: 1rem; }
@@ -99,17 +99,17 @@
         .project-links a:hover { color: var(--primary-color); }
         .project-links a i { margin-right: 0.5rem; }
 
-        .resume-btn { display: inline-block; background-color: var(--primary-color); color: white; padding: 0.8rem 2rem; border-radius: 30px; text-decoration: none; font-weight: 700; transition: background-color 0.2s; }
-        .resume-btn:hover { background-color: #1d4ed8; }
+        .resume-btn { display: inline-block; background-color: var(--primary-color); color: white; padding: 0.8rem 2rem; border-radius: 30px; text-decoration: none; font-weight: 700; transition: background-color 0.2s, transform 0.2s; }
+        .resume-btn:hover { background-color: #1d4ed8; transform: translateY(-2px); }
 
         @media screen and (max-width: 900px) {
             .hero-content { flex-direction: column-reverse; text-align: center; }
+            .hero-text h1 { font-size: 3rem; }
             .hero-text .social-icons { justify-content: center; }
             .skills-matrix-wrapper { flex-direction: column; }
             .chart-wrapper { width: 100%; max-width: 400px; margin: 0 auto; }
         }
     </style>
-
 </head>
 <body>
 
@@ -118,16 +118,19 @@
         <div class="hero-content">
             <div class="hero-text" style="text-align: left;">
                 <h1>Sahithi Keshireddy</h1>
-                <p class="subtitle">Data Analyst | Driving Insights with  Machine Learning and AI</p>
+                <p class="subtitle">Data Analyst | Driving Insights with Machine Learning and AI</p>
                 <p style="margin-top: 1rem; max-width: 600px;">Hi! I’m Sahithi — a data analyst and AI enthusiast who loves turning data into insights with Python, Power BI, and Tableau. Outside of data, I’m exploring tech, creating visual stories, or hunting for the best coffee.</p>
                 <div class="social-icons" style="margin-top: 1.5rem; display: flex; gap: 1.5rem; align-items: center;">
+                    <!-- UPDATE YOUR SOCIAL LINKS HERE -->
                     <a href="https://www.linkedin.com/in/sahithi-keshireddy/" target="_blank" rel="noopener noreferrer" style="color: var(--heading-color); font-size: 1.5rem;"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://github.com/k-sahi" target="_blank" rel="noopener noreferrer" style="color: var(--heading-color); font-size: 1.5rem;"><i class="fab fa-github"></i></a>
                     <a href="mailto:keshireddysahithi@outlook.com" style="color: var(--heading-color); font-size: 1.5rem;"><i class="fas fa-envelope"></i></a>
                 </div>
+                <!-- UPDATE YOUR RESUME LINK HERE -->
                 <a href="./Sahithi Keshireddy_Resume.pdf" target="_blank" class="resume-btn" style="margin-top: 2rem;">View Resume</a>
             </div>
             <div class="hero-image-container">
+                <!-- Make sure 'profile-photo.png' is in the same folder -->
                 <img src="profile-photo.png" alt="Sahithi Keshireddy" class="hero-image" onerror="this.onerror=null; this.src='https://placehold.co/350x350/ffffff/000000?text=SK'">
                 <span id="theme-toggle"><i class="fas fa-sun"></i></span>
             </div>
@@ -146,46 +149,44 @@
     <section id="experience" class="section">
         <div class="container">
             <div class="section-title"><h2>Work Experience</h2></div>
-            <div class="timeline-wrapper">
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h3>Supply Chain Data Analyst</h3>
-                        <h4>Compass Group, UMASS Dartmouth</h4>
-                        <div class="date">Feb 2024 - May 2025</div>
-                        <ul>
-                            <li>Analyzed procurement and inventory data using SQL, Python, and ERP systems (SAP, Oracle), reducing supply chain costs by 15% and improving vendor delivery rates by 12%.</li>
-                            <li>Automated executive dashboards in Tableau, Power BI, and Excel, cutting manual reporting time by 30% and improving real-time supply chain visibility.</li>
-                            <li>Built predictive models with Python and R, and integrated data using Snowflake, Alteryx, and Google Analytics, reducing food waste by 25% and speeding up decisions by 40%.</li>
-                        </ul>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>Data Analyst Intern</h3>
-                        <h4>Volvo Group Trucks Technology, Greensboro, NC</h4>
-                        <div class="date">May 2024 - Aug 2024</div>
-                        <ul>
-                            <li>Automated ETL pipelines using Python, SQL, and Azure Data Factory, boosting data integrity and cutting manual processing time by 60% to support NHTSA audits.</li>
-                            <li>Developed interactive Power BI dashboards with advanced DAX and Power Query, providing real-time visibility into certification timelines for executive teams.</li>
-                            <li>Built predictive models with scikit-learn and implemented spaCy NLP pipelines to forecast bottlenecks and extract regulatory insights.</li>
-                        </ul>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>Data Solutions Engineer</h3>
-                        <h4>FactSet Research Systems, Hyderabad, India</h4>
-                        <div class="date">Nov 2022 - Aug 2023</div>
-                        <ul>
-                            <li>Partnered with global fintech clients to deliver data solutions using SQL, Python, and Power Query, transforming semi-structured data for DB2 systems.</li>
-                            <li>Built Power BI dashboards and automated pipelines with Azure Data Factory, while managing client relationships via Salesforce CRM.</li>
-                        </ul>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>Software Engineer Intern</h3>
-                        <h4>Cognizant, Hyderabad, India</h4>
-                        <div class="date">April 2022 - Oct 2022</div>
-                        <ul>
-                            <li>Built web and enterprise applications using Java, Spring Boot, and JavaScript, delivering client-focused, quality solutions.</li>
-                            <li>Worked in Agile teams with Git and JIRA, contributing to code reviews and ensuring on-time delivery.</li>
-                        </ul>
-                    </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Supply Chain Data Analyst</h3>
+                    <h4>Compass Group, UMASS Dartmouth</h4>
+                    <div class="date">Feb 2024 - May 2025</div>
+                    <ul>
+                        <li>Analyzed procurement and inventory data using SQL, Python, and ERP systems, reducing supply chain costs by 15%.</li>
+                        <li>Automated executive dashboards in Tableau and Power BI, cutting manual reporting time by 30%.</li>
+                        <li>Built predictive models with Python and R to reduce food waste by 25% and speed up decisions by 40%.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3>Data Analyst (Summer Intern)</h3>
+                    <h4>Volvo Group Trucks Technology, Greensboro, NC</h4>
+                    <div class="date">May 2024 - Aug 2024</div>
+                    <ul>
+                        <li>Automated ETL pipelines using Python, SQL, and Azure Data Factory, cutting manual processing time by 60%.</li>
+                        <li>Developed interactive Power BI dashboards providing real-time visibility into certification timelines.</li>
+                        <li>Built predictive models with scikit-learn and implemented spaCy NLP pipelines to forecast bottlenecks.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3>Data Solutions Engineer</h3>
+                    <h4>FactSet Research Systems, Hyderabad, India</h4>
+                    <div class="date">Nov 2022 - Aug 2023</div>
+                    <ul>
+                        <li>Partnered with global fintech clients to deliver data solutions using SQL, Python, and Power Query.</li>
+                        <li>Built Power BI dashboards and automated pipelines with Azure Data Factory, while managing client relationships.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3>Software Engineer Intern</h3>
+                    <h4>Cognizant, Hyderabad, India</h4>
+                    <div class="date">April 2022 - Oct 2022</div>
+                    <ul>
+                        <li>Built web and enterprise applications using Java, Spring Boot, and JavaScript for quality client solutions.</li>
+                        <li>Worked in Agile teams with Git and JIRA, contributing to code reviews and on-time delivery.</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -198,20 +199,29 @@
                 <div class="skills-list">
                     <div class="matrix-skill-category">
                         <h3>Languages & Tools</h3>
-                        <div class="matrix-skill-tags"><span class="matrix-skill-tag">Python</span><span class="matrix-skill-tag">SQL</span><span class="matrix-skill-tag">R</span><span class="matrix-skill-tag">Java</span><span class="matrix-skill-tag">C++</span><span class="matrix-skill-tag">JavaScript</span><span class="matrix-skill-tag">Git</span></div>
+                        <div class="matrix-skill-tags">
+                            <span class="matrix-skill-tag" data-skill="python">Python</span><span class="matrix-skill-tag" data-skill="sql">SQL</span><span class="matrix-skill-tag" data-skill="r">R</span><span class="matrix-skill-tag" data-skill="java">Java</span><span class="matrix-skill-tag" data-skill="javascript">JavaScript</span><span class="matrix-skill-tag" data-skill="git">Git</span>
+                        </div>
                     </div>
                     <div class="matrix-skill-category">
                         <h3>Cloud, Databases & Big Data</h3>
-                        <div class="matrix-skill-tags"><span class="matrix-skill-tag">AWS (S3, EC2, Redshift)</span><span class="matrix-skill-tag">Azure Data Factory</span><span class="matrix-skill-tag">Snowflake</span><span class="matrix-skill-tag">PostgreSQL</span><span class="matrix-skill-tag">Alteryx</span><span class="matrix-skill-tag">SAP</span><span class="matrix-skill-tag">Oracle</span><span class="matrix-skill-tag">DB2</span><span class="matrix-skill-tag">PySpark</span></div>
+                        <div class="matrix-skill-tags">
+                            <span class="matrix-skill-tag" data-skill="aws">AWS</span><span class="matrix-skill-tag" data-skill="azure">Azure Data Factory</span><span class="matrix-skill-tag" data-skill="snowflake">Snowflake</span><span class="matrix-skill-tag" data-skill="postgresql">PostgreSQL</span><span class="matrix-skill-tag" data-skill="pyspark">PySpark</span>
+                        </div>
                     </div>
                     <div class="matrix-skill-category">
                         <h3>Analytics & Visualization</h3>
-                        <div class="matrix-skill-tags"><span class="matrix-skill-tag">Power BI (DAX)</span><span class="matrix-skill-tag">Tableau</span><span class="matrix-skill-tag">Excel</span><span class="matrix-skill-tag">Google Analytics</span><span class="matrix-skill-tag">SAS</span><span class="matrix-skill-tag">SPSS</span><span class="matrix-skill-tag">Statsmodels</span><span class="matrix-skill-tag">A/B Testing</span></div>
+                        <div class="matrix-skill-tags">
+                            <span class="matrix-skill-tag" data-skill="power bi">Power BI</span><span class="matrix-skill-tag" data-skill="tableau">Tableau</span><span class="matrix-skill-tag" data-skill="excel">Excel</span><span class="matrix-skill-tag" data-skill="statsmodels">Statsmodels</span><span class="matrix-skill-tag" data-skill="a/b testing">A/B Testing</span>
+                        </div>
                     </div>
                     <div class="matrix-skill-category">
                         <h3>ML & Frameworks</h3>
-                        <div class="matrix-skill-tags"><span class="matrix-skill-tag">Pandas</span><span class="matrix-skill-tag">NumPy</span><span class="matrix-skill-tag">Scikit-learn</span><span class="matrix-skill-tag">TensorFlow</span><span class="matrix-skill-tag">PyTorch</span><span class="matrix-skill-tag">Keras</span><span class="matrix-skill-tag">Seaborn</span><span class="matrix-skill-tag">spaCy</span><span class="matrix-skill-tag">LangChain</span><span class="matrix-skill-tag">XGBoost</span><span class="matrix-skill-tag">Spring Boot</span></div>
+                        <div class="matrix-skill-tags">
+                            <span class="matrix-skill-tag" data-skill="pandas">Pandas</span><span class="matrix-skill-tag" data-skill="scikit-learn">Scikit-learn</span><span class="matrix-skill-tag" data-skill="tensorflow">TensorFlow</span><span class="matrix-skill-tag" data-skill="spacy">spaCy</span><span class="matrix-skill-tag" data-skill="streamlit">Streamlit</span><span class="matrix-skill-tag" data-skill="django">Django</span>
+                        </div>
                     </div>
+                    <button id="clear-filter-btn" class="resume-btn" style="margin-top: 1.5rem; display: none; background-color: #6b7280;">Show All Projects</button>
                 </div>
                 <div class="chart-wrapper">
                     <canvas id="skillsRadarChart"></canvas>
@@ -224,47 +234,68 @@
         <div class="container">
             <div class="section-title"><h2>Projects</h2></div>
             <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Large Dataset EDA Automation</h3>
-                    <p>Architected a Python automation framework to analyze multi-million-row datasets, cutting EDA time from 3+ hours to under 2 minutes. The reusable script generates comprehensive reports and uses DuckDB for high-performance SQL queries, bypassing standard Pandas memory limits.</p>
-                    <div class="project-tech">Tech: Python, SQL, DuckDB, Pandas, Seaborn, Matplotlib</div>
-                    <div class="project-links"><a href="https://github.com/k-sahi/Large-Dataset-EDA-Automation" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>View on Github</a></div>
+                <div class="project-card" data-tech="python,sql,pandas,seaborn">
+                    <img src="https://placehold.co/600x350/3730a3/e0e7ff?text=>+3hrs+→+<+2min" alt="Large Dataset EDA Automation" class="project-thumbnail">
+                    <div class="project-content">
+                        <h3>Large Dataset EDA Automation</h3>
+                        <p>Architected a Python automation framework to analyze multi-million-row datasets, cutting EDA time from 3+ hours to under 2 minutes. The reusable script generates comprehensive reports and uses DuckDB for high-performance SQL queries.</p>
+                        <div class="project-tech">Tech: Python, SQL, DuckDB, Pandas, Seaborn</div>
+                        <div class="project-links"><a href="https://github.com/k-sahi/Large-Dataset-EDA-Automation" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>View on Github</a></div>
+                    </div>
                 </div>
-                <div class="project-card">
-                    <h3>Mental Health Support Bot (Pilot)</h3>
-                    <p>Designed a Python chatbot to provide anonymous mental health support. It uses NLTK and RegEx for intent detection (anxiety, depression, crisis) and features a safety-first architecture that anonymizes data and directs users in crisis to a lifeline.</p>
-                    <div class="project-tech">Tech: Python, NLTK, SQL, SQLite, Regular Expressions</div>
-                    <div class="project-links"><a href="https://github.com/k-sahi/Mental-Health-Support-Bot" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>View on Github</a></div>
+                <div class="project-card" data-tech="python,sql,nltk">
+                    <img src="https://placehold.co/600x350/0f766e/ccfbf1?text=Mental+Health+AI" alt="Mental Health Support Bot" class="project-thumbnail">
+                    <div class="project-content">
+                        <h3>Mental Health Support Bot (Pilot)</h3>
+                        <p>Designed a Python chatbot to provide anonymous mental health support. It uses NLTK and RegEx for intent detection and features a safety-first architecture that anonymizes data and directs users in crisis to a lifeline.</p>
+                        <div class="project-tech">Tech: Python, NLTK, SQL, SQLite, RegEx</div>
+                        <div class="project-links"><a href="https://github.com/k-sahi/Mental-Health-Support-Bot" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>View on Github</a></div>
+                    </div>
                 </div>
-                <div class="project-card">
-                    <h3>Fake News Detection</h3>
-                    <p>Advanced system to classify news using a fine-tuned DeBERTa model, enhanced with GPT-4 verification and a RAG fallback using live Google Search for low-confidence claims.</p>
-                    <div class="project-tech">Tech: FastAPI, Streamlit, DeBERTa, OpenAI API, RAG</div>
-                    <div class="project-links"><a href="https://github.com/k-sahi/Fake-news-detection" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>View on Github</a></div>
+                <div class="project-card" data-tech="fastapi,streamlit,openai,rag">
+                    <img src="https://placehold.co/600x350/a16207/fefce8?text=Truth+Verified" alt="Fake News Detection" class="project-thumbnail">
+                    <div class="project-content">
+                        <h3>Fake News Detection</h3>
+                        <p>Advanced system to classify news using a fine-tuned DeBERTa model, enhanced with GPT-4 verification and a RAG fallback using live Google Search for low-confidence claims.</p>
+                        <div class="project-tech">Tech: FastAPI, Streamlit, DeBERTa, OpenAI API, RAG</div>
+                        <div class="project-links"><a href="https://github.com/k-sahi/Fake-news-detection" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>View on Github</a></div>
+                    </div>
                 </div>
-                <div class="project-card">
-                    <h3>Stock Price Prediction Agent</h3>
-                    <p>A Streamlit web app using a Random Forest model to predict the next day's stock price direction, trained on 10 years of data with TA features.</p>
-                    <div class="project-tech">Tech: Streamlit, Scikit-learn, yfinance, Pandas-TA</div>
-                    <div class="project-links"><a href="https://github.com/k-sahi/Stock-price-prediction" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>View on Github</a></div>
+                <div class="project-card" data-tech="streamlit,scikit-learn,pandas">
+                    <img src="https://placehold.co/600x350/166534/dcfce7?text=Stock+Prediction" alt="Stock Price Prediction Agent" class="project-thumbnail">
+                    <div class="project-content">
+                        <h3>Stock Price Prediction Agent</h3>
+                        <p>A Streamlit web app using a Random Forest model to predict the next day's stock price direction, trained on 10 years of data with TA features.</p>
+                        <div class="project-tech">Tech: Streamlit, Scikit-learn, yfinance, Pandas-TA</div>
+                        <div class="project-links"><a href="https://github.com/k-sahi/Stock-price-prediction" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>View on Github</a></div>
+                    </div>
                 </div>
-                <div class="project-card">
-                    <h3>Cyber Security Education Portal</h3>
-                    <p>A web-based cybersecurity education platform built with Django, featuring role-based access for admins, contributors, and users to access courses and materials.</p>
-                    <div class="project-tech">Tech: Django, SQLite, HTML/CSS, JavaScript</div>
-                    <div class="project-links"><a href="https://github.com/k-sahi/CyberEduPortal" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>View on Github</a></div>
+                <div class="project-card" data-tech="django,sqlite,javascript">
+                    <img src="https://placehold.co/600x350/581c87/f3e8ff?text=CyberEdu+Portal" alt="Cyber Security Education Portal" class="project-thumbnail">
+                    <div class="project-content">
+                        <h3>Cyber Security Education Portal</h3>
+                        <p>A web-based cybersecurity education platform built with Django, featuring role-based access for admins, contributors, and users to access courses and materials.</p>
+                        <div class="project-tech">Tech: Django, SQLite, HTML/CSS, JavaScript</div>
+                        <div class="project-links"><a href="https://github.com/k-sahi/CyberEduPortal" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>View on Github</a></div>
+                    </div>
                 </div>
-                <div class="project-card">
-                    <h3>IMDb Data Analysis</h3>
-                    <p>Analyzed IMDb movie data using Python for cleaning, EDA, and ML modeling to uncover trends. Developed interactive Tableau dashboards for visual storytelling.</p>
-                    <div class="project-tech">Tech: Python, Pandas, Scikit-learn, Tableau</div>
-                    <div class="project-links"><a href="https://github.com/k-sahi/IMDb-Data-Analysis" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>View on Github</a></div>
+                <div class="project-card" data-tech="python,pandas,scikit-learn,tableau">
+                    <img src="https://placehold.co/600x350/9a3412/ffedd5?text=IMDb+Analytics" alt="IMDb Data Analysis" class="project-thumbnail">
+                    <div class="project-content">
+                        <h3>IMDb Data Analysis</h3>
+                        <p>Analyzed IMDb movie data using Python for cleaning, EDA, and ML modeling to uncover trends. Developed interactive Tableau dashboards for visual storytelling.</p>
+                        <div class="project-tech">Tech: Python, Pandas, Scikit-learn, Tableau</div>
+                        <div class="project-links"><a href="https://github.com/k-sahi/IMDb-Data-Analysis" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>View on Github</a></div>
+                    </div>
                 </div>
-                <div class="project-card">
-                    <h3>A/B Test with Logistic Regression</h3>
-                    <p>Performed statistical A/B testing with Statsmodels to assess a new webpage design's impact on conversion rates, providing data-driven recommendations.</p>
-                    <div class="project-tech">Tech: Python, Pandas, Statsmodels, Seaborn</div>
-                    <div class="project-links"><a href="https://github.com/k-sahi/A-B-Test-with-Logistic-Regression" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>View on Github</a></div>
+                <div class="project-card" data-tech="python,pandas,statsmodels,a/b testing">
+                    <img src="https://placehold.co/600x350/075985/e0f2fe?text=A/B+Test+Results" alt="A/B Test with Logistic Regression" class="project-thumbnail">
+                    <div class="project-content">
+                        <h3>A/B Test with Logistic Regression</h3>
+                        <p>Performed statistical A/B testing with Statsmodels to assess a new webpage design's impact on conversion rates, providing data-driven recommendations.</p>
+                        <div class="project-tech">Tech: Python, Pandas, Statsmodels, Seaborn</div>
+                        <div class="project-links"><a href="https://github.com/k-sahi/A-B-Test-with-Logistic-Regression" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>View on Github</a></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -282,6 +313,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
+        // --- Theme Toggle Logic ---
         const themeToggle = document.getElementById('theme-toggle');
         const root = document.documentElement;
 
@@ -294,10 +326,11 @@
                 root.setAttribute('data-theme', 'light');
                 themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
             }
-            if(window.skillsChart) window.skillsChart.destroy();
+            if (window.skillsChart) window.skillsChart.destroy();
             initSkillsRadarChart();
         });
 
+        // --- Skills Radar Chart Logic ---
         function hexToRgba(hex, alpha) {
             const r = parseInt(hex.slice(1, 3), 16);
             const g = parseInt(hex.slice(3, 5), 16);
@@ -349,6 +382,51 @@
         if (document.getElementById('skillsRadarChart')) {
             initSkillsRadarChart();
         }
+
+        // --- Project Filtering Logic ---
+        const skillTags = document.querySelectorAll('.matrix-skill-tag');
+        const projectCards = document.querySelectorAll('.project-card');
+        const clearFilterBtn = document.getElementById('clear-filter-btn');
+
+        function filterProjects(filterSkill) {
+            if (!filterSkill) { // Clear filter
+                projectCards.forEach(card => card.classList.remove('hidden'));
+                skillTags.forEach(tag => tag.classList.remove('active'));
+                clearFilterBtn.style.display = 'none';
+                return;
+            }
+
+            clearFilterBtn.style.display = 'inline-block';
+
+            projectCards.forEach(card => {
+                const techList = card.dataset.tech.toLowerCase().split(',');
+                if (techList.includes(filterSkill.toLowerCase())) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        skillTags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                const selectedSkill = tag.dataset.skill;
+                const isAlreadyActive = tag.classList.contains('active');
+
+                skillTags.forEach(t => t.classList.remove('active'));
+
+                if (isAlreadyActive) {
+                    filterProjects(null);
+                } else {
+                    tag.classList.add('active');
+                    filterProjects(selectedSkill);
+                }
+            });
+        });
+
+        clearFilterBtn.addEventListener('click', () => {
+            filterProjects(null);
+        });
     });
 </script>
 
