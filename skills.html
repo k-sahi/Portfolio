@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Skills | Sahithi Keshireddy</title><link rel="stylesheet" href="style.css"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="signature">Sahithi Keshireddy</a>
+    <nav><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul></nav>
+    <div class="header-socials">
+        <a href="https://linkedin.com/in/sahithikeshireddy" target="_blank" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/k-sahi" target="_blank" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:keshireddysahithi@outlook.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+</header>
+<main>
+    <div class="page-header animate-on-scroll"><h1>Technical Skills</h1><p>A summary of my technical capabilities, from programming languages to machine learning frameworks.</p></div>
+    <section id="skills" style="padding-top: 0;"><div class="skills-layout">
+        <div class="skills-categories animate-on-scroll">
+            <div class="skill-category"><div class="category-title">Languages & Tools</div><div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span class="skill-tag">R</span><span class="skill-tag">Java</span><span class="skill-tag">JavaScript</span><span class="skill-tag">Git</span></div></div>
+            <div class="skill-category"><div class="category-title">Cloud & Big Data</div><div class="skill-tags"><span class="skill-tag">AWS</span><span class="skill-tag">Azure Data Factory</span><span class="skill-tag">Snowflake</span><span class="skill-tag">PostgreSQL</span><span class="skill-tag">PySpark</span></div></div>
+            <div class="skill-category"><div class="category-title">Analytics & Viz</div><div class="skill-tags"><span class="skill-tag">Power BI</span><span class="skill-tag">Tableau</span><span class="skill-tag">Excel</span><span class="skill-tag">Statsmodels</span><span class="skill-tag">A/B Testing</span></div></div>
+            <div class="skill-category"><div class="category-title">ML & Frameworks</div><div class="skill-tags"><span class="skill-tag">Pandas</span><span class="skill-tag">Scikit-learn</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">spaCy</span><span class="skill-tag">Streamlit</span><span class="skill-tag">Django</span></div></div>
+        </div>
+        <div class="skills-viz animate-on-scroll"><canvas id="skillsRadarChart"></canvas></div>
+    </div></section>
+
+    <!-- FIXED GITHUB ACTIVITY SECTION -->
+    <section id="github-activity"><h2 class="section-title animate-on-scroll">Development Activity</h2>
+        <div id="github-graph" class="animate-on-scroll">
+            <a href="https://github.com/k-sahi">
+                <img src="https://ghchart.rshah.org/0969da/k-sahi" alt="k-sahi's Github chart" />
+            </a>
+        </div>
+    </section>
+</main>
+
+<!-- FIXED FOOTER SECTION -->
+<footer>
+    <div class="footer-socials">
+        <a href="https://linkedin.com/in/sahithikeshireddy" target="_blank" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/k-sahi" target="_blank" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:keshireddysahithi@outlook.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p>© 2024 Sahithi Keshireddy. All rights reserved.</p>
+</footer>
+
+<button id="theme-toggle" title="Toggle theme"><i class="fas fa-moon"></i></button>
+<script src="script.js"></script>
+</body>
+</html>
