@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahithi Keshireddy | Blogs</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Main Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Techy font for dashboard -->
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="signature">Sahithi Keshireddy</a>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="certifications.html">Certifications</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <!-- Highlight current page -->
+            <li><a href="blogs.html" class="active-link">Blogs</a></li>
+        </ul>
+    </nav>
+    <div class="header-socials">
+        <a href="https://www.linkedin.com/in/sahithi-keshireddy/" target="_blank" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/k-sahi" target="_blank" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:keshireddysahithi@outlook.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://medium.com/@sahithireddy2700" target="_blank" class="social-icon" title="Medium"><i class="fab fa-medium"></i></a>
+    </div>
+</header>
+
+<main>
+    <section class="page-header">
+        <h1>My Blogs</h1>
+        <p>A collection of my thoughts, insights, and technical articles on data analysis, machine learning, and AI.</p>
+        <a href="https://medium.com/@sahithireddy2700" target="_blank" class="view-all-button" style="margin-top: 20px;">View All on Medium Profile</a>
+    </section>
+
+    <section class="all-blogs-section">
+        <div class="all-blogs-grid">
+            <!-- Blog Post 1: DuckDB -->
+            <div class="blog-grid-item">
+                <div class="blog-text-content">
+                    <h3 class="blog-title">DuckDB: Conquer Big Data on Your Laptop</h3>
+                    <p class="blog-excerpt">Tired of "MemoryError" or painfully slow Pandas on large datasets? You're not alone. Traditional EDA fails when data is too large for memory. This article introduces DuckDB, an in-process SQL OLAP database that can handle gigabytes of data with ease, directly from your Python environment.</p>
+                    <div class="blog-meta">
+                        <span class="blog-date">Feb 12</span>
+                        <span class="blog-views"><i class="fas fa-eye"></i> 113</span>
+                    </div>
+                    <a href="https://medium.com/@sahithireddy2700/duckdb-conquer-big-data-on-your-laptop-b3c760443217" target="_blank" class="blog-read-more">Read More</a>
+                </div>
+                <div class="blog-thumbnail-wrapper">
+                    <img src="blog-duckdb.png" alt="DuckDB Blog Thumbnail" class="blog-thumbnail">
+                </div>
+            </div>
+
+            <!-- Blog Post 2: No-Code Analytics -->
+            <div class="blog-grid-item">
+                <div class="blog-text-content">
+                    <h3 class="blog-title">The No-Code Analytics Revolution!</h3>
+                    <p class="blog-excerpt">For too long, "data analysis" has meant wrestling with complex spreadsheets and waiting on over-burdened tech teams. The rise of no-code tools is democratizing data, allowing business users to perform sophisticated analytics without writing a single line of code. Learn how it's changing the game.</p>
+                    <div class="blog-meta">
+                        <span class="blog-date">Apr 29, 2024</span>
+                        <span class="blog-views"><i class="fas fa-eye"></i> 1</span>
+                    </div>
+                    <a href="https://medium.com/@sahithireddy2700/the-no-code-analytics-revolution-5694a9712a1f" target="_blank" class="blog-read-more">Read More</a>
+                </div>
+                <div class="blog-thumbnail-wrapper">
+                    <img src="blog-nocode.png" alt="No-Code Analytics Blog Thumbnail" class="blog-thumbnail">
+                </div>
+            </div>
+
+            <!-- Blog Post 3: Quadratic AI -->
+            <div class="blog-grid-item">
+                <div class="blog-text-content">
+                    <h3 class="blog-title">Meet Quadratic AI</h3>
+                    <p class="blog-excerpt">The AI Spreadsheet That Writes Python and SQL For You. Imagine a spreadsheet that understands your data queries in natural language and generates complex Python or SQL code to solve them. Quadratic AI is making this a reality, bridging the gap between business users and advanced data analysis.</p>
+                    <div class="blog-meta">
+                        <span class="blog-date">Jul 30</span>
+                        <span class="blog-views"><i class="fas fa-eye"></i> 1</span>
+                    </div>
+                    <a href="https://medium.com/@sahithireddy2700/meet-quadratic-ai-the-ai-spreadsheet-that-writes-python-and-sql-for-you-a08365612803" target="_blank" class="blog-read-more">Read More</a>
+                </div>
+                <div class="blog-thumbnail-wrapper">
+                    <img src="blog-quadratic.png" alt="Quadratic AI Blog Thumbnail" class="blog-thumbnail">
+                </div>
+            </div>
+
+            <!-- Add more blog posts here following the same structure -->
+
+        </div>
+    </section>
+</main>
+
+<button id="theme-toggle" title="Toggle theme"><i class="fas fa-moon"></i></button>
+<script src="script.js"></script>
+</body>
+</html>
