@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Sahithi Keshireddy | Data Analyst</title><link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahithi Keshireddy | Data Analyst</title>
+    <link rel="stylesheet" href="style.css">
     <!-- Main Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
     <!-- Techy font for dashboard -->
@@ -13,23 +16,29 @@
 
 <header>
     <a href="index.html" class="signature">Sahithi Keshireddy</a>
-    <nav><ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="experience.html">Experience</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="certifications.html">Certifications</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul></nav>
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active-link">Home</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="certifications.html">Certifications</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <!-- New: Link to the All Blogs page -->
+            <li><a href="blogs.html">Blogs</a></li>
+        </ul>
+    </nav>
     <div class="header-socials">
         <a href="https://www.linkedin.com/in/sahithi-keshireddy/" target="_blank" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
         <a href="https://github.com/k-sahi" target="_blank" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
         <a href="mailto:keshireddysahithi@outlook.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+        <!-- Medium Social Icon -->
+        <a href="https://medium.com/@sahithireddy2700" target="_blank" class="social-icon" title="Medium"><i class="fab fa-medium"></i></a>
     </div>
 </header>
+
 <main>
     <div class="home-container" id="live-dashboard-wrapper">
-        
         <div class="home-text">
             <h1>Sahithi Keshireddy</h1>
             <p class="subtitle">Data Analyst | Driving Insights with Machine Learning and AI</p>
@@ -66,14 +75,92 @@
             <a href="experience.html" target="_blank" class="home-button">View Resume</a>
         </div>
 
-        
         <div class="home-image">
             <img src="Profile_img.png" alt="A professional headshot of Sahithi Keshireddy">
         </div>
     </div>
 </main>
+
+<!-- NEW: FEATURED SECTION (Tableau & Blog Previews Side-by-Side) -->
+<section id="featured" class="featured-section">
+    <div class="featured-content-wrapper">
+        <h2 class="section-title-featured">Featured</h2>
+        <p class="section-subtitle-featured">Little more about me!</p>
+
+        <div class="featured-columns-grid">
+            <!-- Featured Tableau Column -->
+            <div class="featured-column tableau-column">
+                <h3 class="category-heading">Tableau</h3>
+                <div class="category-content-grid">
+                    <!-- Tableau Project Card 1 (DW2024 W39) -->
+                    <a href="https://public.tableau.com/app/profile/sahithi.keshireddy/vizzes" target="_blank" class="project-card-featured">
+                        <img src="placeholder_tableau_sankey.png" alt="Tableau Sankey Viz" class="tableau-viz-thumbnail">
+                        <div class="card-text-content">
+                            <h4>DW2024 W39: Can you use the Sankey Viz Extension?</h4>
+                            <p class="viz-description">A viz showing the count of number of students across Age, Mode, Level and Domicile.</p>
+                            <div class="viz-meta">
+                                <span class="viz-author">Sahithi Keshireddy</span>
+                                <span class="viz-views"><i class="fas fa-eye"></i> 45</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Tableau Project Card 2 (WoW 38) -->
+                    <a href="https://public.tableau.com/app/profile/sahithi.keshireddy/vizzes" target="_blank" class="project-card-featured">
+                        <img src="placeholder_tableau_wow38.png" alt="Tableau Sales Dashboard" class="tableau-viz-thumbnail">
+                        <div class="card-text-content">
+                            <h4>WoW 38</h4>
+                            <p class="viz-description">Sales Analysis Dashboard focusing on Category, Ship Mode, and Region.</p>
+                            <div class="viz-meta">
+                                <span class="viz-author">Sahithi Keshireddy</span>
+                                <span class="viz-views"><i class="fas fa-eye"></i> 42</span>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Add more featured Tableau cards here if desired -->
+                </div>
+            </div>
+
+            <!-- Featured Blog Column -->
+            <div class="featured-column blog-column">
+                <h3 class="category-heading">Blog</h3>
+                <div class="category-content-list blog-list-featured-column">
+                    <!-- Blog Post 1: DuckDB (Featured Preview) -->
+                    <div class="blog-grid-item-featured-col">
+                        <div class="blog-text-content-featured-col">
+                            <h4 class="blog-title-featured-col">DuckDB: Conquer Big Data on Your Laptop</h4>
+                            <p class="blog-excerpt-featured-col">Tired of "MemoryError" or painfully slow Pandas on large datasets? You're not alone...</p>
+                            <p class="blog-meta-featured-col">1d ago <i class="fas fa-eye"></i> 1</p>
+                            <a href="https://medium.com/@sahithireddy2700/duckdb-conquer-big-data-on-your-laptop-b3c760443217" target="_blank" class="read-more-link-featured-col">Read More</a>
+                        </div>
+                        <div class="blog-thumbnail-wrapper-featured-col">
+                            <img src="blog-duckdb.png" alt="DuckDB Blog Thumbnail" class="blog-thumbnail-featured-col">
+                        </div>
+                    </div>
+
+                    <!-- Blog Post 2: No-Code Analytics (Featured Preview) -->
+                    <div class="blog-grid-item-featured-col">
+                        <div class="blog-text-content-featured-col">
+                            <h4 class="blog-title-featured-col">The No-Code Analytics Revolution!</h4>
+                            <p class="blog-excerpt-featured-col">For too long, "data analysis" has meant wrestling with complex spreadsheets...</p>
+                            <p class="blog-meta-featured-col">6d ago</p>
+                            <a href="https://medium.com/@sahithireddy2700/the-no-code-analytics-revolution-5694a9712a1f" target="_blank" class="read-more-link-featured-col">Read More</a>
+                        </div>
+                        <div class="blog-thumbnail-wrapper-featured-col">
+                            <img src="blog-nocode.png" alt="No-Code Analytics Blog Thumbnail" class="blog-thumbnail-featured-col">
+                        </div>
+                    </div>
+                    <!-- Add more featured blog posts here if desired, using the same structure -->
+                </div>
+                <div class="view-all-button-container-featured">
+                    <a href="blogs.html" target="_blank" class="view-all-button-featured">View All Blogs</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <button id="theme-toggle" title="Toggle theme"><i class="fas fa-moon"></i></button>
 <script src="script.js"></script>
-
 </body>
 </html>
